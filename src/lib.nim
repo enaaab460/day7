@@ -2,11 +2,11 @@ import sequtils,strutils
 
 func processLine*(line: string): tuple[answer: int, components: seq[int]]= # '*' exports the function
     let sides = line.split(": ") # Uniform function call syntax
-    let answer = sides[0].parseInt()
+    let answer = sides[0].parseInt() # let means immutable
     let components = sides[1].split(" ").map(parseInt) # chaining function calls
     return (answer,components)
 
-func tryComponents*(answer:int,components: seq[int]): bool= # seq is dynamic array
+func tryComponents*(answer:int,components: seq[int]): bool= # seq is dynamic array, after `:` is the return type, after  `=` is the function body
     let temp_result = components[0]
 
     proc trial(temp_result:int,component_index:int): bool= # proc is a function that can have sideEffects and capture variables in scope
@@ -33,7 +33,7 @@ func tryComponents*(answer:int,components: seq[int]): bool= # seq is dynamic arr
     return trial(temp_result,1)
 
 func level1*(input: string): int=
-    var sum = 0
+    var sum = 0 # var means mutable
     for line in input.splitLines():
         let (answer,components) = processLine(line)
         let success = tryComponents(answer,components)
