@@ -41,6 +41,6 @@ func level1*(input: string): int=
             sum += answer
     return sum
 
-proc getInput*(filename: string): string=
+proc getInput*(filename: string): string= # result is implicit variable representing the return value
     result = readFile("input/" & filename)
     result.stripLineEnd()
