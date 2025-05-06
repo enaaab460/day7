@@ -1,12 +1,12 @@
 import unittest,strutils,sequtils,strformat
 import lib
 
-suite "processInput":
+suite "processInput": # templates can look like code blocks
     let input = getInput("test1.txt")
     let lines = input.splitLines()
     test "parse line 1":
         let (answer,components) = processLine(lines[0])
-        check answer == 190
+        check answer == 190 # functions/templates/macros can skip brackets 
         check components == @[10,19]
     
     test "tryComponents":
