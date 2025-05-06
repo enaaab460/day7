@@ -14,7 +14,7 @@ func tryComponents*(answer:int,components: seq[int]): bool= # seq is dynamic arr
         let sum = temp_result + component
         let product = temp_result * component
 
-        if component_index == components.high: #Highest index of components
+        if component_index == components.high: #Highest index of components == len - 1
             if sum == answer or product == answer:
                 return true
             else:
